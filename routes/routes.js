@@ -5,8 +5,9 @@ const logger = require('morgan');
 
 const app = express();
 const indexRouter = require('./index');
-const usersRouter = require('./users');
+const searchRouter = require('./search');
 const manualRouter = require('./manual');
+const addRouter = require('./add');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -15,8 +16,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/search', searchRouter);
 app.use('/manual', manualRouter);
+app.use('/add',addRouter);
 
 // view engine setup
 app.set('views', path.join(__dirname, '/../views'));
