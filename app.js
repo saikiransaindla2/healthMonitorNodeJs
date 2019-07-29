@@ -13,7 +13,7 @@ const sleep = require('./reg.js').sleep;
     console.log("before call:",i);
     reg(i+1);
     console.log("after call:",i);
-    await sleep(10000);
+    await sleep(1000*60*2);
   }
 })()
 
