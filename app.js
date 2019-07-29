@@ -1,7 +1,24 @@
 var createError = require('http-errors');
 const logger = require('morgan');
 
+const reg = require('./reg.js').reg;
+const sleep = require('./reg.js').sleep;
+// const msg = require('./rand.js').msg;
+// const sleep = require('./rand.js').sleep;
+
+
+(async()=>{
+  for(let i=0;;i++)
+  {
+    console.log("before call:",i);
+    reg(i+1);
+    console.log("after call:",i);
+    await sleep(10000);
+  }
+})()
+
 const app = require('./routes/routes.js');
+
 app.use(logger('dev'));
 
 //HANDLE ERRORS

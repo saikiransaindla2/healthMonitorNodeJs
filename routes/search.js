@@ -9,6 +9,9 @@ router.get('/', function(req, res, next) {
         // type: '_doc', // uncomment this line if you are using Elasticsearch ≤ 6
         
         body: {
+          sort: [{ "RunId": { "order": "desc" } },
+                 { "Attempt": {"order": "desc"} }
+          ],
           query: {
             match: { Url: req.query.site }
           },
